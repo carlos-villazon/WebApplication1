@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "hH71gWE3xQpjPWqGylKrzF5/utj7oINPNxrUTrSdk8XRNwbom0LLQWCf2FPjXC/cqKi90D9lJY+agJ+zalAoog==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\CARLOS VILLAZON\\source\\repos\\WebApplication1\\WebApplication1_API\\WebApplication1_API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\CARLOS VILLAZON\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.7\\microsoft.aspnetcore.openapi.7.0.7.nupkg.sha512",
+    "C:\\Users\\CARLOS VILLAZON\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\CARLOS VILLAZON\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\CARLOS VILLAZON\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\CARLOS VILLAZON\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\CARLOS VILLAZON\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\CARLOS VILLAZON\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
