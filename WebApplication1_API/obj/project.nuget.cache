@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "3PtVl4Es2/9yIFs98AhU7CKfYiN0D4KBSeTx2u4RTC8teLJ6dTY5KGxlUwyDURQMTcVrb/zfjKqZUKYsSBzNXA==",
+  "dgSpecHash": "LKPXN8+MnwlLh1hg75x1ernq9aiY6QrUEj/wH5p7yOvrLJn6oReT50Jdg6YGOhKuBGIwCVdl/3T/WFi7WQTX9Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\CARLOS VILLAZON\\source\\repos\\WebApplication1\\WebApplication1_API\\WebApplication1_API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\CARLOS VILLAZON\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\CARLOS VILLAZON\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\CARLOS VILLAZON\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\CARLOS VILLAZON\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\CARLOS VILLAZON\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
