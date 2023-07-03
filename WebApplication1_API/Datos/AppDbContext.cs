@@ -11,6 +11,7 @@ namespace WebApplication1_API.Datos
         }
             
         public DbSet<Villa> Villas { get; set; } //Se crea como una tabla en la Bd
+        public DbSet<NumeroVilla> NumeroVillas { get; set; } //Se crea como una tabla en la Bd
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Villa>().HasData(
