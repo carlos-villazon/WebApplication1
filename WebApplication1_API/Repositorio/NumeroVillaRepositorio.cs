@@ -15,6 +15,7 @@ namespace WebApplication1_API.Repositorio
 
         public async Task<NumeroVilla> Actualizar(NumeroVilla entidad)
         {
+            //entidad.FechaActualizacion = DateTime.Now;
             entidad.FechaCreacion = DateTime.Now;
             _appDbContext.NumeroVillas.Update(entidad);
             await _appDbContext.SaveChangesAsync();

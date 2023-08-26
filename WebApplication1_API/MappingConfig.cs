@@ -8,7 +8,7 @@ namespace WebApplication1_API
     {
         public MappingConfig()
         {
-            CreateMap<Villa, VillaDto>();
+            CreateMap<Villa, VillaDto>(); //<fuente,destino>
             CreateMap<VillaDto, Villa>();
 
             CreateMap<Villa, VillaCreateDto>().ReverseMap();

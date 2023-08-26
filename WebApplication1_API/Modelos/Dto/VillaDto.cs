@@ -10,6 +10,7 @@ namespace WebApplication1_API.Modelos.Dto
         [MaxLength(30)]
         public string Nombre { get; set; }
         public string Detalle { get; set; }
+        
         [Required]
         public double Tarifa { get; set; }
         public int Ocupantes { get; set; }

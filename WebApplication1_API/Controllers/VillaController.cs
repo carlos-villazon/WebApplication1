@@ -16,7 +16,7 @@ namespace WebApplication1_API.Controllers
     [ApiController]
     public class VillaController : ControllerBase
     {
-        private readonly ILogger<VillaController> _logger; //nos muestra mensajes en consola
+        private readonly ILogger<VillaController> _logger; //nos muestra informacion del proceso en consola
         //private readonly AppDbContext _appDbContext; //realizamos CRUD con la bd
         private readonly IVillaRepositorio _villaRepositorio;
         private readonly IMapper _mapper;
@@ -31,6 +31,7 @@ namespace WebApplication1_API.Controllers
             _apiResponse = new();
         }
 
+        
         [HttpGet] //nos devuelve TODA la lista
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<APIResponse>> GetVillas()
@@ -65,7 +66,8 @@ namespace WebApplication1_API.Controllers
             return _apiResponse;
         }
 
-        [HttpGet("id:int", Name = "GetVilla")] //nos de vuelve UN(1) elemento de la lista por Id
+        
+        [HttpGet("id:int", Name="GetVilla")] //nos devuelve UN(1) elemento de la lista por Id
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -75,7 +77,7 @@ namespace WebApplication1_API.Controllers
             {
                 if (id == 0)
                 {
-                    _logger.LogError("Error al traer Villa con Id " + id);
+                    _logger.LogError("Error al traer Villa con Id: " + id);
                     _apiResponse.StatusCode = HttpStatusCode.BadRequest;
                     _apiResponse.IsExitoso = false;
                     return BadRequest(_apiResponse);
@@ -108,17 +110,19 @@ namespace WebApplication1_API.Controllers
             return _apiResponse;
         }
 
+        
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[FromBody] indica que vamos a recibir datos
         public async Task<ActionResult<APIResponse>> CrearVilla([FromBody] VillaCreateDto createDto)
         {
             try
             {
                 if (!ModelState.IsValid)
                 {
-                    return BadRequest(ModelState);
+                    return BadRequest(ModelState); //verifica que se cumplan las validaciones de campos
                 }
 
                 /*if (VillaStore.villaList.FirstOrDefault(v => v.Nombre.ToLower() == villaDto.Nombre.ToLower()) != null)
@@ -149,14 +153,14 @@ namespace WebApplication1_API.Controllers
                     return StatusCode(StatusCodes.Status500InternalServerError);
                 }*/
 
-                /*villaDto.Id = VillaStore.villaList.OrderByDescending(v => v.Id).FirstOrDefault().Id + 1;
-                VillaStore.villaList.Add(villaDto);*/
+                //villaDto.Id = VillaStore.villaList.OrderByDescending(v => v.Id).FirstOrDefault().Id + 1;
+                //VillaStore.villaList.Add(villaDto);
 
                 Villa modelo = _mapper.Map<Villa>(createDto);
 
                 /*Villa modelo = new()
                 {
-                    //Id = villaDto.Id,
+                    //Id = villaDto.Id, //aca el id se genera automaticamente
                     Nombre = createDto.Nombre,
                     Detalle = createDto.Detalle,
                     ImagenUrl = createDto.ImagenUrl,
@@ -166,10 +170,11 @@ namespace WebApplication1_API.Controllers
                     Amenidad = createDto.Amenidad
                 };*/
 
-                /*await _appDbContext.Villas.AddAsync(modelo);
-                await _appDbContext.SaveChangesAsync();*/
+                //await _appDbContext.Villas.AddAsync(modelo);
+                //await _appDbContext.SaveChangesAsync();
 
                 modelo.FechaCreacion = DateTime.Now;
+                //modelo.FechaActualizacion = DateTime.Now;
                 await _villaRepositorio.Crear(modelo);
                 _apiResponse.Resultado = modelo;
                 _apiResponse.StatusCode = HttpStatusCode.Created;
@@ -188,6 +193,7 @@ namespace WebApplication1_API.Controllers
             return _apiResponse;
         }
 
+        
         [HttpDelete("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -216,11 +222,10 @@ namespace WebApplication1_API.Controllers
 
                 //VillaStore.villaList.Remove(villa);
 
-                /*_appDbContext.Villas.Remove(villa); //remove no es metodo asincrono
-                await _appDbContext.SaveChangesAsync();*/
+                //_appDbContext.Villas.Remove(villa); //remove no es metodo asincrono
+                //await _appDbContext.SaveChangesAsync();
 
                 await _villaRepositorio.Remover(villa);
-
                 _apiResponse.StatusCode = HttpStatusCode.NoContent;
 
                 //return NoContent();
@@ -235,6 +240,7 @@ namespace WebApplication1_API.Controllers
             return BadRequest(_apiResponse);
         }
 
+        
         [HttpPut("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -242,8 +248,8 @@ namespace WebApplication1_API.Controllers
         {
             if (updateDto == null || id != updateDto.Id)
             {
-                _apiResponse.IsExitoso=false;
-                _apiResponse.StatusCode=HttpStatusCode.BadRequest;
+                _apiResponse.IsExitoso = false;
+                _apiResponse.StatusCode = HttpStatusCode.BadRequest;
                 return BadRequest(_apiResponse);
             }
 
@@ -267,17 +273,17 @@ namespace WebApplication1_API.Controllers
                 Amenidad = updateDto.Amenidad
             };*/
 
-            /*_appDbContext.Villas.Update(modelo); //update no es metodo asincrono
-            await _appDbContext.SaveChangesAsync();*/
+            //_appDbContext.Villas.Update(modelo); //update no es metodo asincrono
+            //await _appDbContext.SaveChangesAsync();
 
             await _villaRepositorio.Actualizar(modelo);
-
             _apiResponse.StatusCode = HttpStatusCode.NoContent;
 
             //return NoContent();
             return Ok(_apiResponse);
         }
 
+        
         [HttpPatch("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -333,12 +339,11 @@ namespace WebApplication1_API.Controllers
                 Amenidad = villaDto.Amenidad
             };*/
 
-            /*_appDbContext.Villas.Update(modelo); //no es asincrono
-            await _appDbContext.SaveChangesAsync();*/
+            //_appDbContext.Villas.Update(modelo); //no es asincrono
+            //await _appDbContext.SaveChangesAsync();
 
             await _villaRepositorio.Actualizar(modelo);
-
-            _apiResponse.StatusCode=HttpStatusCode.NoContent;
+            _apiResponse.StatusCode = HttpStatusCode.NoContent;
 
             //return NoContent();
             return Ok(_apiResponse);

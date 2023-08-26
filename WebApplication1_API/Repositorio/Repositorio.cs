@@ -29,7 +29,7 @@ namespace WebApplication1_API.Repositorio
 
         public async Task<T> Obtener(Expression<Func<T, bool>>? filtro = null, bool tracked = true)
         {
-            IQueryable<T> query = dbSet;
+            IQueryable<T> query = dbSet; //IQueryable para que podamos hacer consultas
             
             if (!tracked)
             {

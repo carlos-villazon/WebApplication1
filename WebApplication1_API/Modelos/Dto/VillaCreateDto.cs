@@ -4,12 +4,13 @@ namespace WebApplication1_API.Modelos.Dto
 {
     public class VillaCreateDto
     {
-        //public int Id { get; set; }
+        //public int Id { get; set; } //el id se genera automaticamente
 
         [Required] //validaciones de campos
         [MaxLength(30)]
         public string Nombre { get; set; }
         public string Detalle { get; set; }
+        
         [Required]
         public double Tarifa { get; set; }
         public int Ocupantes { get; set; }
